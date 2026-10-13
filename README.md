@@ -174,20 +174,3 @@ dotnet test
 ## License
 
 See [LICENSE](LICENSE).
-
-### Modern block-model materials
-
-Model textures accept both legacy strings and objects such as
-`{"sprite":"minecraft:block/glass","force_translucent":true}`. Sprite paths remain
-available through `BlockModelDefinition.Textures`; `ForceTranslucentTextures`
-preserves per-slot material flags. Flags follow parent inheritance and texture
-references, while a child texture override replaces the inherited flag.
-
-Forced translucent geometry is composited back-to-front over opaque geometry,
-retains low-alpha texels, and exports with a blend material in schematic glTF/GLB.
-Legacy string-only models retain their existing rendering path.
-
-The texture repository resolves relocated vanilla shield, banner and copper-golem
-textures in either direction. Exact paths are preferred within each source,
-resource-pack priority is preserved, and these aliases only apply to the
-`minecraft` namespace. No resource files are copied or rewritten.
